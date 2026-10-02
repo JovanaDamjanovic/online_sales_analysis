@@ -1,4 +1,5 @@
 
+
 class ProductManager:
     def __init__(self):
         self.products = []
@@ -17,3 +18,12 @@ class ProductManager:
             total += product.price * product.quantity
 
         return total
+
+    def remove_product(self, name):
+        for product in self.products:
+            if product.name == name:
+                self.products.remove(product)
+                print("Removed product:", name)
+                return
+
+        print("Product not found:", name)
