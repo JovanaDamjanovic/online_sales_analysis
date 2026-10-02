@@ -1,7 +1,9 @@
 
+import random
 
 from product import Product
 from product_manager import ProductManager
+from cart import Cart
 
 manager = ProductManager()
 
@@ -15,3 +17,13 @@ manager.add_product(product2)
 manager.add_product(product3)
 manager.add_product(product4)
 
+cart = Cart()
+
+selected_products = random.sample(manager.products, 3)
+
+for product in selected_products:
+    cart.add_product(product)
+
+cart.show_cart()
+
+print("Total cart value:", cart.total_value())
